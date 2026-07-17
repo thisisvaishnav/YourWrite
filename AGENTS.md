@@ -38,7 +38,7 @@ Optional Claude Code plugin manifest.
 Optional single-repository marketplace entry so users can run:
 
 ```bash
-/plugin marketplace add blader/humanizer
+/claude-plugin add thisisvaishnav/yourwrite
 ```
 
 ---
