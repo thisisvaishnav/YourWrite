@@ -1,5 +1,6 @@
 ---
 name: YourWrite
+version: 0.1.0
 description: |
   An AI writing assistant that rewrites, edits, humanizes, improves, and transforms text while preserving the author's intent.
 license: MIT

@@ -9,13 +9,13 @@ Load the skill in any AI agent harness that supports Markdown skill instructions
 **Claude Code**
 
 ```bash
-/claude-plugin add blader/humanizer
+/claude-plugin add thisisvaishnav/humanizer
 ```
 
 **OpenCode**
 
 ```bash
-/opencode install blader/humanizer
+/opencode install thisisvaishnav/humanizer
 ```
 
 **Manual** — Copy or reference `SKILL.md` from any compatible harness.
@@ -72,6 +72,10 @@ You can optionally provide a writing sample for voice calibration.
 ## Reference
 
 Based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup.
+
+## Version History
+
+**0.1.0** — Initial release. 33 patterns, voice calibration, detection guidance.
 
 ## License
 

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/.claude/schemas/marketplace.json",
+  "name": "yourwrite",
+  "display_name": "YourWrite",
+  "description": "An AI writing assistant that removes AI writing patterns and humanizes text.",
+  "categories": ["writing", "editing"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisisvaishnav/yourwrite"
+  },
+  "install": {
+    "command": "/claude-plugin add thisisvaishnav/yourwrite"
+  }
+}
