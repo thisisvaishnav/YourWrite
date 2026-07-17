@@ -1,8 +1,44 @@
+<p align="center">
+  <a href="#-features"><img src="https://img.shields.io/badge/Features-✨-blue?style=flat-square" /></a>
+  <a href="#-usage"><img src="https://img.shields.io/badge/Usage-📖-orange?style=flat-square" /></a>
+  <a href="#-patterns"><img src="https://img.shields.io/badge/Patterns-🔍-green?style=flat-square" /></a>
+  <a href="#-installation"><img src="https://img.shields.io/badge/Install-🚀-red?style=flat-square" /></a>
+  <a href="#-reference"><img src="https://img.shields.io/badge/Reference-📚-purple?style=flat-square" /></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/format-Markdown-000000?style=flat-square&logo=markdown&logoColor=white" alt="Markdown" />
+  <img src="https://img.shields.io/badge/compatibility-Any%20Agent-6A0DAD?style=flat-square&logo=robot&logoColor=white" alt="Any Agent" />
+  <img src="https://img.shields.io/badge/language-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/patterns-33-FF6B6B?style=flat-square" alt="33 Patterns" />
+  <img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="License" />
+</p>
+
+---
+
 # YourWrite
 
 An AI writing skill that removes signs of AI-generated text and makes writing sound more natural and human.
 
-## Installation
+## ✨ Features
+
+- **33 AI-writing patterns** detected and rewritten
+- **Voice calibration** via optional writing sample
+- **Preserves meaning** — rewrites, doesn't delete
+- **Harness-agnostic** — works in Claude Code, OpenCode, Codex, Warp, and more
+
+## 📖 Usage
+
+Tell the agent to humanize a piece of text. The agent will:
+
+1. Scan for 33 AI-writing patterns
+2. Rewrite AI-isms with natural alternatives
+3. Preserve meaning and length
+4. Match the intended voice
+
+You can optionally provide a writing sample for voice calibration.
+
+## 🚀 Installation
 
 Load the skill in any AI agent harness that supports Markdown skill instructions:
 
@@ -20,18 +56,7 @@ Load the skill in any AI agent harness that supports Markdown skill instructions
 
 **Manual** — Copy or reference `SKILL.md` from any compatible harness.
 
-## Usage
-
-Tell the agent to humanize a piece of text. The agent will:
-
-1. Scan for 33 AI-writing patterns
-2. Rewrite AI-isms with natural alternatives
-3. Preserve meaning and length
-4. Match the intended voice
-
-You can optionally provide a writing sample for voice calibration.
-
-## Patterns Summary
+## 🔍 Patterns Summary
 
 | # | Pattern | Watch for |
 |---|---------|-----------|
@@ -69,7 +94,7 @@ You can optionally provide a writing sample for voice calibration.
 | 32 | Aphorism formulas | "X is the Y of Z" |
 | 33 | Rhetorical openers | "Honestly?", "Look", "Here's the thing" |
 
-## Reference
+## 📚 Reference
 
 Based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup.
 
