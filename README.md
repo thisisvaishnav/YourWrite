@@ -1,3 +1,5 @@
+<h1 align="center">YourWrite</h1>
+
 <p align="center">
   <a href="#-features"><img src="https://img.shields.io/badge/Features-✨-blue?style=flat-square" /></a>
   <a href="#-usage"><img src="https://img.shields.io/badge/Usage-📖-orange?style=flat-square" /></a>
@@ -15,8 +17,6 @@
 </p>
 
 ---
-
-# YourWrite
 
 An AI writing skill that removes signs of AI-generated text and makes writing sound more natural and human.
 
