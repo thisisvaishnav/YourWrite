@@ -9,13 +9,13 @@ Load the skill in any AI agent harness that supports Markdown skill instructions
 **Claude Code**
 
 ```bash
-/claude-plugin add thisisvaishnav/humanizer
+/claude-plugin add thisisvaishnav/yourwrite
 ```
 
 **OpenCode**
 
 ```bash
-/opencode install thisisvaishnav/humanizer
+/opencode install thisisvaishnav/yourwrite
 ```
 
 **Manual** — Copy or reference `SKILL.md` from any compatible harness.
