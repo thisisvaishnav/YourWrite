@@ -4,6 +4,5 @@
   "description": "Removes signs of AI-generated text and makes writing sound more natural and human.",
   "skill": "SKILL.md",
   "author": "thisisvaishnav",
-  "license": "MIT",
   "compatibility": "any-agent"
 }
