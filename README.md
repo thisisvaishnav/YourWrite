@@ -93,6 +93,7 @@ Load the skill in any AI agent harness that supports Markdown skill instructions
 | 31 | Manufactured punchlines | stacked short declarative fragments |
 | 32 | Aphorism formulas | "X is the Y of Z" |
 | 33 | Rhetorical openers | "Honestly?", "Look", "Here's the thing" |
+| 34 | Rhetorical openers | "Honestly?", "Look", "Here's the thing" |
 
 ## 📚 Reference
 
