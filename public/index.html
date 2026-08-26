@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YourWrite — Humanize AI Text</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>YourWrite</h1>
+      <p class="subtitle">Remove AI writing patterns. Make text sound human.</p>
+    </header>
+
+    <main>
+      <div class="editor-row">
+        <div class="panel">
+          <label for="input-text">Input (AI-generated text)</label>
+          <textarea id="input-text" placeholder="Paste your AI-generated text here..." rows="14"></textarea>
+        </div>
+        <div class="panel">
+          <label for="output-text">Output (Humanized)</label>
+          <textarea id="output-text" placeholder="Humanized text will appear here..." rows="14" readonly></textarea>
+        </div>
+      </div>
+
+      <details class="voice-sample-section">
+        <summary>Voice Calibration (optional)</summary>
+        <p>Paste a sample of your own writing so the output matches your style.</p>
+        <textarea id="writing-sample" placeholder="Paste a sample of your writing here..." rows="6"></textarea>
+      </details>
+
+      <div class="actions">
+        <button id="humanize-btn" onclick="humanize()">Humanize</button>
+        <button id="copy-btn" class="secondary" onclick="copyOutput()" disabled>Copy Output</button>
+        <button id="swap-btn" class="secondary" onclick="swapTexts()">Swap</button>
+      </div>
+
+      <div id="status" class="status" hidden></div>
+
+      <details class="patterns-section">
+        <summary>33 Patterns Detected</summary>
+        <div class="patterns-grid">
+          <div class="pattern-group">
+            <h3>Content</h3>
+            <ol>
+              <li>Undue emphasis on significance</li>
+              <li>Undue emphasis on notability</li>
+              <li>Superficial -ing analyses</li>
+              <li>Promotional language</li>
+              <li>Vague attributions</li>
+              <li>Formulaic "Challenges" sections</li>
+            </ol>
+          </div>
+          <div class="pattern-group">
+            <h3>Language & Grammar</h3>
+            <ol start="7">
+              <li>Overused AI vocabulary</li>
+              <li>Copula avoidance</li>
+              <li>Negative parallelisms</li>
+              <li>Rule of three overuse</li>
+              <li>Synonym cycling</li>
+              <li>False ranges</li>
+              <li>Passive voice / fragments</li>
+            </ol>
+          </div>
+          <div class="pattern-group">
+            <h3>Style</h3>
+            <ol start="14">
+              <li>Em dashes</li>
+              <li>Overuse of boldface</li>
+              <li>Inline-header lists</li>
+              <li>Title case headings</li>
+              <li>Emojis</li>
+              <li>Curly quotation marks</li>
+            </ol>
+          </div>
+          <div class="pattern-group">
+            <h3>Communication & Filler</h3>
+            <ol start="20">
+              <li>Collaborative artifacts</li>
+              <li>Knowledge-cutoff disclaimers</li>
+              <li>Sycophantic tone</li>
+              <li>Filler phrases</li>
+              <li>Excessive hedging</li>
+              <li>Generic conclusions</li>
+              <li>Hyphenated word pairs</li>
+              <li>Persuasive authority tropes</li>
+              <li>Signposting</li>
+              <li>Fragmented headers</li>
+              <li>Diff-anchored writing</li>
+              <li>Staccato drama</li>
+              <li>Aphorism formulas</li>
+              <li>Rhetorical openers</li>
+            </ol>
+          </div>
+        </div>
+      </details>
+    </main>
+
+    <footer>
+      <p>Based on <a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing" target="_blank">Wikipedia: Signs of AI writing</a> &middot; Powered by Google Gemini</p>
+    </footer>
+  </div>
+
+  <script>
+    const inputEl = document.getElementById('input-text');
+    const outputEl = document.getElementById('output-text');
+    const sampleEl = document.getElementById('writing-sample');
+    const btn = document.getElementById('humanize-btn');
+    const copyBtn = document.getElementById('copy-btn');
+    const statusEl = document.getElementById('status');
+
+    function showStatus(msg, type) {
+      statusEl.textContent = msg;
+      statusEl.className = 'status ' + type;
+      statusEl.hidden = false;
+    }
+
+    function hideStatus() {
+      statusEl.hidden = true;
+    }
+
+    async function humanize() {
+      const text = inputEl.value.trim();
+      if (!text) {
+        showStatus('Please enter some text to humanize.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Humanizing...';
+      showStatus('Processing with Google Gemini... This may take a moment.', 'loading');
+      copyBtn.disabled = true;
+
+      const body = { text };
+      const sample = sampleEl.value.trim();
+      if (sample) body.writingSample = sample;
+
+      try {
+        const res = await fetch('/api/humanize', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          showStatus(data.error || 'Something went wrong.', 'error');
+          return;
+        }
+
+        outputEl.value = data.result;
+        copyBtn.disabled = false;
+        showStatus('Done! Review the output below.', 'success');
+      } catch (err) {
+        showStatus('Network error. Is the server running?', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Humanize';
+      }
+    }
+
+    function copyOutput() {
+      outputEl.select();
+      document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy Output'; }, 1500);
+    }
+
+    function swapTexts() {
+      const tmp = inputEl.value;
+      inputEl.value = outputEl.value;
+      outputEl.value = tmp;
+    }
+  </script>
+</body>
+</html>
